@@ -1,0 +1,22 @@
+{
+  "name": "navendu-fb-bot",
+  "version": "1.0.0",
+  "description": "A simple facebook bot",
+  "main": "fb-bot.js",
+  "scripts": {
+    "start": "node fb-bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NavenduDuari/fb-bot.git"
+  },
+  "author": "Navendu Duari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NavenduDuari/fb-bot/issues"
+  },
+  "homepage": "https://github.com/NavenduDuari/fb-bot#readme",
+  "dependencies": {
+    "puppeteer": "^3.0.4"
+  }
+}
