@@ -10,28 +10,25 @@ function sleep(ms) {
 (async () => {
   try {
     const browser = await puppeteer.launch({
+      headless: false,
       slowMo: 30,
       args: [
-        '--window-size=1280,800',
-        '--no-sandbox'
+        '--window-size=1280,800'
+        // '--no-sandbox'
       ]
     });
-    console.log("line  19")
     const page = await browser.newPage()
     await page.setDefaultNavigationTimeout(1000000)
     await page.setViewport({ width: 1280, height: 800 })
     await page.goto('https://www.facebook.com')
-    console.log("line 24")
     await page.waitForSelector('#email')
     await page.type('#email', email)
     await page.type('#pass', password)
     await page.click(`[type="submit"]`)
-    console.log("line 29")
     await page.waitForNavigation()
-    // await page.click(`div`)
+    await page.click(`div`)
     await page.waitForSelector(`[data-click="profile_icon"]`)
     while(true){
-    console.log("line 34")
       await page.click(`[data-click="profile_icon"]`)
       if(page.url() === "https://www.facebook.com/profile.php?id=100004635300715"){
         break
@@ -39,7 +36,6 @@ function sleep(ms) {
     }
     while(true){
         // await page.waitForNavigation();
-        console.log("within while")
         await page.reload({ waitUntil: ["networkidle0", "domcontentloaded"] })
         await page.click(`div`)
         await page.evaluate(()=>{
@@ -61,7 +57,7 @@ function sleep(ms) {
           }
           return isReacted
         })
-        console.log("isReacted", isReacted)
+        console.log(`isReacted = ${isReacted}`)
 
         //reacting
         if(isReacted === "false") {
