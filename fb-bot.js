@@ -16,7 +16,7 @@ function sleep(ms) {
         '--no-sandbox'
       ]
     });
-    console.log("line 19")
+    console.log("line  19")
     const page = await browser.newPage()
     await page.setDefaultNavigationTimeout(1000000)
     await page.setViewport({ width: 1280, height: 800 })
