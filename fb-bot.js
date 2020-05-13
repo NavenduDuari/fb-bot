@@ -28,7 +28,7 @@ function sleep(ms) {
     await page.click(`[type="submit"]`)
     console.log("line 29")
     await page.waitForNavigation()
-    await page.click(`div`)
+    // await page.click(`div`)
     await page.waitForSelector(`[data-click="profile_icon"]`)
     while(true){
     console.log("line 34")
